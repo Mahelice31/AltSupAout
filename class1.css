@@ -1,42 +1,42 @@
-/*chargement essayer */
+/* Chargement essayer */
 
 .loader {
-    width: 6em;
-    height: 6em;
-    font-size: 20px;
-    position: relative;
-    display: flex;
     align-items: center;
+    display: flex;
+    font-size: 20px;
+    height: 6em;
     justify-content: center;
-    margin-top: 50vh; /* poussé de la moitié de hauteur de viewport */
-    transform: translateY(-50%); /* tiré de la moitié de sa propre hauteur */
     margin-left: auto;
     margin-right: auto;
+    margin-top: 50vh;
+    position: relative;
+    transform: translateY(-50%);
+    width: 6em;
 }
 
 .loader .face {
-    position: absolute;
+    animation: animate023845 3s linear infinite;
     border-radius: 50%;
     border-style: solid;
-    animation: animate023845 3s linear infinite;
+    position: absolute;
 }
 
 .loader .face:nth-child(1) {
-    width: 100%;
-    height: 100%;
-    color: gold;
-    border-color: currentColor transparent transparent currentColor;
-    border-width: 0.2em 0.2em 0em 0em;
     --deg: -45deg;
     animation-direction: normal;
+    border-color: currentColor transparent transparent currentColor;
+    border-width: 0.2em 0.2em 0;
+    color: #ffd700;
+    height: 100%;
+    width: 100%;
 }
 
 .loader .face:nth-child(2) {
     width: 70%;
     height: 70%;
-    color: lime;
+    color: #00ff00;
     border-color: currentColor currentColor transparent transparent;
-    border-width: 0.2em 0em 0em 0.2em;
+    border-width: 0.2em 0 0 0.2em;
     --deg:135deg;
     animation-direction: reverse ;
 }
@@ -50,154 +50,150 @@
 
 
 .body{
+    color: #FFF;
     font-family: Arial;
-    color: white;
 }
 
-/*
-pour la page d'accueil
-*/
+/* Page d'accueil */
+
 .split{
-    height: 100%;
-    width: 50%;
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    text-align: center;
     background: linear-gradient(90deg, #ffffff86, #ffffff86);
+    height: 100%;
+    left: 50%;
+    position: fixed;
+    text-align: center;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 50%;
 }
 
 .centered{
-    position: absolute;
-    top: 50%;
     left: 50%;
-    transform: translate(-50%, -50%);
+    position: absolute;
     text-align: center;
+    top: 50%;
+    transform: translate(-50%, -50%);
 }
 
 .body-background1{
     background-image: url(CampusSciencesU.jpeg);
     background-size: cover;
-    
 }
 
 /* Page login */
+
 .body-login {
+    background: linear-gradient(90deg, #ffffff86, #ffffff86);
+    height: 100%;
     margin: 0;
     padding: 0;
-    height: 100%;
-    
-    background: linear-gradient(90deg, #ffffff86, #ffffff86);
 }
 
 .body-success {
+    background: linear-gradient(90deg, #13b443, rgb(99, 226, 120));
+    height: 100vh;
     margin: 0;
     padding: 0;
-    height: 100vh;
-    background: linear-gradient(90deg, #13b443, rgb(99, 226, 120));
-   
 }
 
 .body-failure {
+    background: linear-gradient(90deg, #cf0d0d, #000);
+    height: 100vh;
     margin: 0;
     padding: 0;
-    height: 100vh;
-    background: linear-gradient(90deg, #cf0d0d, #000000);
-
 }
 
 .div-login {
+    background: #FFF;
+    border-radius: 10px;
+    box-shadow: 10px 10px 15px rgba(0,0,0,0.05);
+    left: 50%;
     position: absolute;
     top: 50%;
-    left: 50%;
-    width: 400px;
-    background: white;
-    border-radius: 10px;
     transform: translate(-50%, -50%);
-    box-shadow: 10px 10px 15px rgba(0,0,0,0.05);
+    width: 400px;
 }
 
 .div-login h1 {
-    text-align: center;
+    border-bottom: 1px solid #c0c0c0;
     padding: 20px 0;
-    border-bottom: 1px solid silver;
+    text-align: center;
 }
 
 .div-login form {
-    padding: 0 40px;
     box-sizing: border-box;
+    padding: 0 40px;
 }
 
 .div-error {
-    width: 400px;
-    background: white;
+    background: #FFF;
     border-radius: 10px;
     box-shadow: 10px 10px 15px rgba(0,0,0,0.05);
+    width: 400px;
 }
 
 .div-error p {
-    text-align: center;
-    padding: 15px 0;
+    background: #FFF;
     color: #666666;
-    background: white;
+    padding: 15px 0;
+    text-align: center;
 }
 
 .div-list {
     justify-content: center;
-    position: relative;
-    min-width: 250px;
     height: 50px;
+    min-width: 250px;
+    position: relative;
 }
 
 .texte-select {
-    position: relative;
     border-bottom: 2px solid #adadad;
     margin: 30px 0;
+    position: relative;
 }
 
 form .texte {
-    position: relative;
     border-bottom: 2px solid #adadad;
     margin: 30px 0;
+    position: relative;
 }
 
 .texte input {
-    width: 100%;
-    padding: 0 5px;
-    height: 40px;
-    font-size: 16px;
-    border: none;
     background: none;
+    border: none;
+    font-size: 16px;
+    height: 40px;
     outline: none;
+    padding: 0 5px;
+    width: 100%;
 }
 
 .texte label {
-    position: absolute;
-    top: 50%;
-    left: 5px;
     color: #adadad;
     font-size: 16px;
+    left: 5px;
+    pointer-events: none;
+    position: absolute;
+    top: 50%;
     transform: translateY(-50%);
     transition: .5s;
-    pointer-events: none;
 }
 
 .texte span::before {
+    background: #2691d9;
     content: '';
+    height: 2px;
+    left: 0;
     position: absolute;
     top: 40px;
-    left: 0;
-    width: 0%;
-    height: 2px;
-    background: #2691d9;
     transition: .5s;
+    width: 0%;
 }
 
 .texte input:focus ~ label,
 .texte input:valid ~label {
-    top: -5px;
     color: #2691d9;
+    top: -5px;
 }
 
 .texte input:focus ~ span::before,
@@ -206,13 +202,13 @@ form .texte {
 }
 
 .pass {
-    margin: -5px 0 20px 5px;
     color: #a6a6a6;
     cursor: pointer;
+    margin: -5px 0 20px 5px;
 }
 
 .pass:hover {
-  text-decoration: underline;
+    text-decoration: underline;
 }
 
 input[type="submit"] {
@@ -234,10 +230,10 @@ input[type="submit"]:hover {
 }
 
 .register-link {
+    color: #666666;
+    font-size: 16px;
     margin: 30px 0;
     text-align: center;
-    font-size: 16px;
-    color: #666666;
 }
 
 .register-link a {
@@ -250,19 +246,19 @@ input[type="submit"]:hover {
 }
 
 select {
-    border: none;
     appearance: none;
-    padding: 5px;
-    width: 70%;
-    color: white;
     background-color: #2691d9;
-    font-size: 20px;
+    border: none;
     border-radius: 15px;
-    text-align:center;
+    color: #FFF;
+    font-size: 20px;
+    padding: 5px;
+    text-align: center;
+    width: 70%;
 }
 
 option {
-    color: white;
+    color: #FFF;
     text-align: center;
 }
 
@@ -271,37 +267,38 @@ select:hover {
 }
 
 /* Admin */
+
 .divAdmin {
-    position: absolute;
-    padding: 30px;
-    top: 50%;
-    left: 50%;
-    width: 50%;
-    height: 50%;
+    background: #FFF;
     border-radius: 10px;
+    box-shadow: 10px 10px 10px #000;
+    height: 50%;
+    left: 50%;
+    padding: 30px;
+    position: absolute;
     text-align: center;
-    background: white;
-    box-shadow: 10px 10px 10px black;
+    top: 50%;
     transform: translate(-50%, -50%);
+    width: 50%;
 }
 
 
 .divAdmin h1 {
+    border-bottom: 1px solid #c0c0c0;
     font-size: 40px;
     margin-bottom: 10%;
-    border-bottom: 1px solid silver;
     padding: 15px;
 }
 
 .divAdmin button {
-    border-radius: 10px;
-    border: none;
-    padding: 10px;
-    outline: none;
     background: #2691d9;
-    font-weight: 700;
+    border: none;
+    border-radius: 10px;
     font-size: 30px;
+    font-weight: 700;
     margin-bottom: 10%;
+    outline: none;
+    padding: 10px;
 }
 
 .divAdmin button:hover {
@@ -309,56 +306,57 @@ select:hover {
     transition: 1.5s;
 }
 
-/*Commercial */
-.divCommercial {
+/* Commercial */
 
-    padding: 30px;
-    top: 50%;
-    left: 50%;
-    width: 50%;
-    height: 50%;
+.divCommercial {
+    background: #FFF;
     border-radius: 10px;
+    box-shadow: 10px 10px 10px #000;
+    height: 50%;
+    left: 50%;
+    padding: 30px;
     text-align: center;
-    background: white;
-    box-shadow: 10px 10px 10px black;
+    top: 50%;
     transform: translate(-50%, -50%);
+    width: 50%;
 }
 
 .body-bgs{
-    margin: 0;
-    padding: 0;
+    background: linear-gradient(90deg, #080808, #00008b);
     height: 100vh;
+    margin: 0;
     overflow: hidden;
-    background: linear-gradient(90deg, #080808, darkblue);
+    padding: 0;
 }
 
 .td {
-    color: aliceblue;
+    color: #f0f8ff;
 }
 
 /* Navigation Bar */
+
 .navbar {
-    padding: 20px 10px 20px 0px;
     background-color: #000000a5;
+    padding: 20px 10px 20px 0px;
     transition: all ease 0.4s;
     z-index: 1;
 }
 
 .navbar-brand{
+    color: #FFF !important;
     font-size: 22px;
-    color: white !important;
     padding-left: 10%;
 }
 
 .navA {
+    border-radius: 5px;
+    color: #FFF;
     font-size: 22px;
     font-weight: 600;
-    color: white;
-    text-align: center;
     padding: 10px;
+    text-align: center;
     text-decoration: none;
-    transition: all 0.5s ;
-    border-radius: 5px;
+    transition: all 0.5s;
 }
 
 .navbar-header {
@@ -367,17 +365,17 @@ select:hover {
 
 .navA:hover {
     background: #2691d9;
-    color: white;
+    color: #FFF;
 }
 
 .navLogo {
-    font-size: 22px;
-    color: white;
-    text-align: center;
-    padding: 10px;
-    text-decoration: none;
-    transition: all 0.5s ;
     border-radius: 5px;
+    color: #FFF;
+    font-size: 22px;
+    padding: 10px;
+    text-align: center;
+    text-decoration: none;
+    transition: all 0.5s;    
 }
 
 .navLogo:hover {
@@ -385,25 +383,25 @@ select:hover {
 }
 
 .name {
+    color: #FFF;
     font-size: 22px;
     font-weight: 600;
-    color: white;
-    padding: 10px;
+    float: left;
     margin-right: 30px;
+    padding: 10px;
     text-decoration: underline;
-    float: left; /* Ajout de la propriété float: left; */
 }
 
 .time {
+    border: solid;
+    border-radius: 5px;
+    color: #FFF;
     font-size: 22px;
-    color: white;
+    font-weight: 700;
+    float: right;
     padding: 10px;
     text-align: right;
     text-decoration: none;
-    font-weight: 700;
-    border: solid;
-    border-radius: 5px;
-    float: right; /* Ajout de la propriété float: right; */
 }
 
 .divTime {
@@ -411,20 +409,20 @@ select:hover {
 }
 
 .time:hover {
-    color: white;
+    color: #FFF;
 }
 
 .name:hover {
-    color: white;
+    color: #FFF;
 }
 
 .navbar .navbar-nav li a {
+    color: #FFF;
     font-size: 16px;
-    color: white;
 }
 .images {
-    width: 25%;
     height: 25%;
+    width: 25%;
 }
 
 .logo {
@@ -440,43 +438,43 @@ select:hover {
 }
 
 /* Body admin menu */
+
 .bodyAdmin {
-margin: 0;
-padding: 0;
-height: 100%;
-background-image: url("CampusSciencesU.jpeg");
-background-size: cover;
+    background-image: url("CampusSciencesU.jpeg");
+    background-size: cover;
+    height: 100%;
+    margin: 0;
+    padding: 0;
 }
 
 .containerAdmin {
-    border-radius: 5px;
-    justify-content: center;
     align-items: center;
+    border-radius: 5px;
     display: flex;
-
+    justify-content: center;
 }
 
 .divAdminMenu {
-    margin-top: 10%;
     background: #b4b4b4;
+    border-radius: 5px;
+    margin-top: 10%;
     padding-bottom: 3%;
     padding-left: 5%;
     padding-right: 5%;
-    border-radius: 5px;
     width: 85%;
 }
 
 .adminTitle {
+    border-bottom: solid #c0c0c0;
     margin-bottom: 5%;
     margin-top: 5%;
-    border-bottom: solid silver;
 }
 
 .divTitle {
+    border-bottom: solid #c0c0c0 2px;
+    border-width: 100%;
     margin-bottom: 5%;
     margin-top: 5%;
-    border-bottom: solid silver 2px;
-    border-width: 100%;
 }
 
 .divTitle h1 {
@@ -484,7 +482,7 @@ background-size: cover;
 }
 
 .divAdminMenu a {
-    color: black;
+    color: #000;
     text-decoration: none;
 }
 
@@ -496,16 +494,26 @@ background-size: cover;
     margin-top: 5%;
 }
 
-.divAdminMenu .col-md-4, .divAdminMenu .col-md-3, .divAdminMenu .col {
-    border-radius: 10px;
+.divAdminMenu .col-md-4 {
+    margin-bottom: 1rem;
+}
+
+.col {
+    margin-top: 1rem;
+}
+
+.divAdminMenu .col-md-4,
+.divAdminMenu .col-md-3,
+.divAdminMenu .col {
+    background: #FFF;
     border: solid #adadad 2px;
-    padding-top: 10px;
+    border-radius: 10px;
+    margin-left: 40px;
+    margin-right: 40px;
     padding-bottom: 20px;
     padding-left: 20px;
     padding-right: 20px;
-    margin-left: 40px;
-    margin-right: 40px;
-    background: white;
+    padding-top: 10px;
 }
 
 .divAdminMenu p {
@@ -515,47 +523,45 @@ background-size: cover;
 
 
 .divChoice {
-    background: white;
+    background: #FFF;
 }
 
 table {
    border: 5px;
    border-color: #adadad;
-
 }
 
 .alerte {
-    position: relative;
-    color: white;
     border: 2px solid #FF4754;
-    width: 8%;
-    height: 8%;
-    text-decoration: none;
-    padding: 1rem 2rem;
     border-radius: 4px;
+    color: #FFF;
+    height: 8%;
+    padding: 1rem 2rem;
+    position: relative;
+    text-decoration: none;
     transition: all .2s;
-  }
+    width: 8%;
+}
   
 .alertes:hover {
     background-color: #FF4754;
-
-  }
+}
 
 .alertes span {
-    position: absolute;
-    top: -0.5rem;
-    right: -0.5rem;
-    background: #FF4754;
-    width: 35px;
-    height: 35px;
-    display: flex;
     align-items: center;
-    justify-content: center;
+    background: #FF4754;
     border: 4px solid #121212;
     border-radius: 50%;
-  }
+    display: flex;
+    height: 35px;
+    justify-content: center;
+    position: absolute;
+    right: -0.5rem;
+    top: -0.5rem;
+    width: 35px;
+}
 
 .cloche {
-    width: 50px;
     height: 50px;
+    width: 50px;
 }

@@ -17,7 +17,7 @@
         ?>
         <nav class="navbar navbar-default navbar-fixed-top">
             <div class="navbar-header">
-                <a name="home" class="navLogo" 
+                <a name="home" class="navLogo"
 
                 <?php
                     if (isset($_POST['home'])) {
@@ -26,12 +26,15 @@
                     }
                 ?>
                 href="home.php" style=""><img src="logo.png" class="logo"></img></a>
+                <a class="navA" href="DirecteurCre.php">Menu</a>
+                <a class="navA" href="adminAddUtilisateur.php">Ajouter utilisateurs</a>
+                <!-- <a class="navA" href="adminUtilisateur.php">Gérer utilisateurs</a>
+                <a class="navA" href="adminRole.php">Roles</a> -->
                 <a class="navA" href="adminAddStudent.php">Ajouter un étudiant</a>
                 <a class="navA" href="etudiants.php">Liste des étudiants</a>
                 <!-- <a class="navA" href="suivi-tuteur.php"> Faire un suivi</a> -->
                 <a class="navA" href="listeSuivis.php">Liste des suivis</a>
-
-            </div> 
+            </div>
             <div class="divTime">
                 <?php
 
@@ -40,11 +43,22 @@
                         $db = mysqli_connect('localhost', 'root', '', 'alt_sup_project');
                         $sqlSelect = "SELECT prenom FROM utilisateurs WHERE email = '$email'";
                         $result = mysqli_query($db, $sqlSelect);
+                       // Exécution de la requête
+                        $query = "SELECT * FROM alertes";
+                        $alerte = $db->query($query);
+
+                        // Vérifiez si la requête a retourné des résultats
+                        if ($alerte) {
+                            // Obtenez le nombre de lignes
+                            $numRows = $alerte->num_rows;
+
+                            // Libérez les ressources
+                            $alerte->free();
+                        }
 
                         if(mysqli_num_rows($result) > 0) {
                             $row = mysqli_fetch_assoc($result);
                             $username = $row['prenom'];
-                            echo "<a class='name'>Bienvenue $username</a>";
                         } 
                             
                         else {
@@ -59,12 +73,11 @@
                         exit();
                     }
 
-                ?>
-
-              
-                <?php
-                    echo "<a class='time' id='clock'></a>"; 
-                ?>
+                ?>              
+            <a class="alerte alertes alertes span" href="#">
+                <img src="cloche.png" class=" cloche alertes:hower alertes span">
+                <span><?php echo $numRows; ?></span>
+                </a>
             </div>
         </nav>
         <div class="containerAdmin">

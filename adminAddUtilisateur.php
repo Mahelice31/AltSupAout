@@ -26,7 +26,7 @@
             $row = $stmt->fetch(PDO::FETCH_ASSOC);
             $id_utilisateur = $row['id_utilisateur'];
         ?>
-         <nav class="navbar navbar-default navbar-fixed-top">
+        <nav class="navbar navbar-default navbar-fixed-top">
             <div class="navbar-header">
                 <a name="home" class="navLogo"
 
@@ -46,7 +46,6 @@
                 <!-- <a class="navA" href="suivi-tuteur.php"> Faire un suivi</a> -->
                 <a class="navA" href="listeSuivis.php">Liste des suivis</a>
             </div>
-
             <div class="divTime">
                 <?php
 
@@ -55,6 +54,18 @@
                         $db = mysqli_connect('localhost', 'root', '', 'alt_sup_project');
                         $sqlSelect = "SELECT prenom FROM utilisateurs WHERE email = '$email'";
                         $result = mysqli_query($db, $sqlSelect);
+                       // Exécution de la requête
+                        $query = "SELECT * FROM alertes";
+                        $alerte = $db->query($query);
+
+                        // Vérifiez si la requête a retourné des résultats
+                        if ($alerte) {
+                            // Obtenez le nombre de lignes
+                            $numRows = $alerte->num_rows;
+
+                            // Libérez les ressources
+                            $alerte->free();
+                        }
 
                         if(mysqli_num_rows($result) > 0) {
                             $row = mysqli_fetch_assoc($result);
@@ -76,7 +87,7 @@
                 ?>              
             <a class="alerte alertes alertes span" href="#">
                 <img src="cloche.png" class=" cloche alertes:hower alertes span">
-                <span>3</span>
+                <span><?php echo $numRows; ?></span>
                 </a>
             </div>
         </nav>

@@ -47,10 +47,6 @@ session_start();
                 <!-- <a class="navA" href="suivi-tuteur.php"> Faire un suivi</a> -->
                 <a class="navA" href="listeSuivis.php">Liste des suivis</a>
             </div>
-            <a class="alerte alertes alertes span" href="#">
-                <img src="cloche.png" class=" cloche alertes:hower alertes span">
-                <span>3</span>
-                </a>
             <div class="divTime">
                 <?php
 
@@ -59,11 +55,22 @@ session_start();
                         $db = mysqli_connect('localhost', 'root', '', 'alt_sup_project');
                         $sqlSelect = "SELECT prenom FROM utilisateurs WHERE email = '$email'";
                         $result = mysqli_query($db, $sqlSelect);
+                       // Exécution de la requête
+                        $query = "SELECT * FROM alertes";
+                        $alerte = $db->query($query);
+
+                        // Vérifiez si la requête a retourné des résultats
+                        if ($alerte) {
+                            // Obtenez le nombre de lignes
+                            $numRows = $alerte->num_rows;
+
+                            // Libérez les ressources
+                            $alerte->free();
+                        }
 
                         if(mysqli_num_rows($result) > 0) {
                             $row = mysqli_fetch_assoc($result);
                             $username = $row['prenom'];
-                            echo "<a class='name'>Bienvenue $username</a>";
                         } 
                             
                         else {
@@ -79,29 +86,30 @@ session_start();
                     }
 
                 ?>              
-                <?php
-                    echo "<a class='time' id='clock'></a>"; 
-                ?>
+            <a class="alerte alertes alertes span" href="#">
+                <img src="cloche.png" class=" cloche alertes:hower alertes span">
+                <span><?php echo $numRows; ?></span>
+                </a>
             </div>
         </nav>
         
     <div class="containerAdmin text-center">
         <div class="divAdminMenu bg-light">
             <h1></h1>
-            <div class="col">
+            <div class="col mb-3 d-flex flex-column align-items-center">
                 <h1>Import/Export</h1>
-                <form action="import.php" method="post" enctype="multipart/form-data">
+                <form action="import.php" method="post" enctype="multipart/form-data" class="w-100">
                     <div class="mb-3">
                         <label for="csv_file" class="form-label">Choisir un fichier CSV</label>
                         <input type="file" name="csv_file" id="csv_file" class="form-control" required>
                     </div>
-                    <div class="button" style="margin-top: 3%; width: 80%;">
+                    <div class="button" style="margin-top: 3%; width: 100%;">
                          <a href="export.php"><input type="submit" name="submit" value="Importer les données">
                     </div>
                 </form>
 
-            <div class="texte-center">
-            <div class="button" style="margin-top: 3%; width: 80%;">
+            <div class="texte-center w-100">
+            <div class="button" style="margin-top: 3%; width: 100%;">
                 <a href="export.php"><input type="submit" name="submit" value="Exporter les données en CSV">
             </div>
             </div>
